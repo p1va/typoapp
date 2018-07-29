@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimaryDark">#424242</color>
+    <color name="colorAccent">#ff0266</color>
+    <color name="montserrat_bg">#FE3F61</color>
+    <color name="montserrat_font_color">#FBFFFE</color>
+
+    <color name="beach_bg">#4D4D4D</color>
+    <color name="beach_font_color">#FF9F8F</color>
+
+    <color name="beach_bg2">#93C9D5</color>
+    <color name="beach_font_color2">#FAF1EA</color>
+
+    <color name="beach_bg3">#F9DDD2</color>
+    <color name="beach_font_color3">#FAF1EA</color>
+
+
+    <color name="theme_vcr_bg">#1A01A7</color>
+    <color name="theme_vcr_ft">#FFFFFF</color>
+    
+    <color name="theme_playfare_bg">#F9E08C</color>
+    <color name="theme_playfare_ft">#8D7D30</color>
+
+    <color name="theme_quicksand_bg">#222222</color>
+    <color name="theme_quicksand_ft">#FFFFFF</color>
+
+
+    <color name="shadow">#40000000</color>
+
+
+</resources>

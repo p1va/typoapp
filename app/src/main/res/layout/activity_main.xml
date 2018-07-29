@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="0dp"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:padding="8dp"
+        android:id="@+id/main_toolbar"
+        android:contentInsetLeft="16dp"
+        android:contentInsetStart="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@null"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Hi"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/baseline_format_quote_white_36dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/baseline_format_color_fill_white_36dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/baseline_format_size_white_36dp"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="16dp"
+            android:id="@+id/themes"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:orientation="horizontal"/>
+    </LinearLayout>
+</LinearLayout>
