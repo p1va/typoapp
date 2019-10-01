@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Fox Text</string>
+    <string name="app_name">Typo</string>
+    <string name="tab_themes">Themes</string>
+    <string name="default_welcome_text">🐼🍃\nSay it with Typo</string>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,74 +7,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="0dp"
-    tools:context=".MainActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:padding="8dp"
-        android:id="@+id/main_toolbar"
-        android:contentInsetLeft="16dp"
-        android:contentInsetStart="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    tools:context=".ui.MainActivity">
 
     <LinearLayout
+        android:id="@+id/text_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:gravity="center"
-        android:padding="8dp">
+        android:padding="16dp">
 
-        <EditText
+        <android.support.text.emoji.widget.EmojiAppCompatEditText
             android:id="@+id/edit_text"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:background="@null"
             android:gravity="center"
-            android:padding="16dp"
-            android:text="Hi"
-            android:textAlignment="center"/>
+            android:padding="48dp"
+            android:text="🐼🍃\nSay it with Typo"/>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:padding="8dp"
+    <com.github.p1va.typoapp.ui.NonSwipeableViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:minHeight="80dp"
+        android:layout_below="@id/text_layout"
+        android:layout_above="@+id/tabs" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+    <android.support.design.widget.TabLayout
+        android:layout_above="@id/share_button"
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabMode="fixed" />
+    
+    <Button
+        android:background="@android:color/transparent"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:text="SHARE"
+        android:id="@+id/share_button"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@mipmap/baseline_format_quote_white_36dp"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@mipmap/baseline_format_color_fill_white_36dp"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@mipmap/baseline_format_size_white_36dp"/>
-
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="16dp"
-            android:id="@+id/themes"
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:orientation="horizontal"/>
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

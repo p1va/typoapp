@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.github.p1va.quickbrownfox">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.github.p1va.typoapp">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
+        android:name="com.github.p1va.typoapp.TypoApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"
+                tools:replace="android:resource"/>
+        </provider>
+
+        <activity
+            android:windowSoftInputMode="adjustPan"
+            android:name="com.github.p1va.typoapp.ui.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

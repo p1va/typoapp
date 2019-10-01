@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#424242</color>
     <color name="colorPrimaryDark">#424242</color>
-    <color name="colorAccent">#ff0266</color>
+    <color name="colorAccent">#4C60E6</color>
+
     <color name="montserrat_bg">#FE3F61</color>
     <color name="montserrat_font_color">#FBFFFE</color>
 
@@ -24,6 +25,9 @@
 
     <color name="theme_quicksand_bg">#222222</color>
     <color name="theme_quicksand_ft">#FFFFFF</color>
+
+    <color name="theme_permanent_marker_bg">#5F6B93</color>
+    <color name="theme_permanent_marker_ft">#FFFFFF</color>
 
 
     <color name="shadow">#40000000</color>
