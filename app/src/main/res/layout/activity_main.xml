@@ -13,9 +13,11 @@
         android:id="@+id/text_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
         android:layout_alignParentTop="true"
+        android:layout_above="@id/viewpager"
         android:gravity="center"
-        android:padding="16dp">
+        android:padding="0dp">
 
         <android.support.text.emoji.widget.EmojiAppCompatEditText
             android:id="@+id/edit_text"
@@ -23,38 +25,28 @@
             android:layout_height="300dp"
             android:background="@null"
             android:gravity="center"
-            android:padding="48dp"
-            android:text="🐼🍃\nSay it with Typo"/>
+            android:padding="0dp"
+            android:text="@string/default_welcome_text"/>
 
     </LinearLayout>
 
     <com.github.p1va.typoapp.ui.NonSwipeableViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="80dp"
-        android:layout_below="@id/text_layout"
+        android:layout_marginTop="16dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/tabs" />
 
     <android.support.design.widget.TabLayout
-        android:layout_above="@id/share_button"
+        android:layout_alignParentBottom="true"
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabIndicatorHeight="0dp"
         app:tabMode="fixed" />
-    
-    <Button
-        android:background="@android:color/transparent"
-        android:textColor="@color/colorAccent"
-        android:textStyle="bold"
-        android:text="SHARE"
-        android:id="@+id/share_button"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"/>
 
 </RelativeLayout>

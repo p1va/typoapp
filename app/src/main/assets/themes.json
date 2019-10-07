@@ -1,6 +1,6 @@
 [
   {
-    "miniatureText": "Mm",
+    "miniatureText": "Aa",
     "name": "Montserrat Dark",
     "font": "Montserrat-Bold.ttf",
     "fontColorHex": "#FF9F8F",
@@ -12,7 +12,7 @@
     "verticalAlignment": "center"
   },
   {
-    "miniatureText": "Mm",
+    "miniatureText": "Bb",
     "name": "Montserrat Original",
     "font": "Montserrat-Bold.ttf",
     "fontColorHex": "#FBFFFE",
@@ -20,11 +20,11 @@
     "fontSize": 10,
     "letterSpacing": 0.0,
     "lineSpacing": 0.0,
-    "horizontalAlignment": "left",
-    "verticalAlignment": "bottom"
+    "horizontalAlignment": "center",
+    "verticalAlignment": "center"
   },
   {
-    "miniatureText": "Mm",
+    "miniatureText": "Cc",
     "name": "Montserrat Beach",
     "font": "Montserrat-Bold.ttf",
     "fontColorHex": "#FAF1EA",
@@ -36,7 +36,7 @@
     "verticalAlignment": "center"
   },
   {
-    "miniatureText": "Aa",
+    "miniatureText": "Dd",
     "name": "A book Beach",
     "font": "EBGaramond-Regular.ttf",
     "fontColorHex": "#4D4D4D",
@@ -48,7 +48,7 @@
     "verticalAlignment": "center"
   },
   {
-    "miniatureText": "Aa",
+    "miniatureText": "Ee",
     "name": "Amatic Dark",
     "font": "AmaticSC-Regular.ttf",
     "fontColorHex": "#F9DDD2",
@@ -60,7 +60,7 @@
     "verticalAlignment": "center"
   },
   {
-    "miniatureText": "Aa",
+    "miniatureText": "Ff",
     "name": "Amatic Light",
     "font": "AmaticSC-Regular.ttf",
     "fontColorHex": "#4D4D4D",
@@ -72,7 +72,79 @@
     "verticalAlignment": "center"
   },
   {
-    "miniatureText": "Vv",
+    "miniatureText": "Gg",
+    "name": "Rubik Pink",
+    "font": "Rubik-Black.ttf",
+    "fontColorHex": "#FFFFFF",
+    "backgroundColorHex": "#4C60E6",
+    "fontSize": 10,
+    "letterSpacing": 0.0,
+    "lineSpacing": 0.0,
+    "horizontalAlignment": "center",
+    "verticalAlignment": "center"
+  },
+  {
+    "miniatureText": "Hh",
+    "name": "Space Mono",
+    "font": "SpaceMono-Regular.ttf",
+    "fontColorHex": "#F5E6E7",
+    "backgroundColorHex": "#F04D4D",
+    "fontSize": 10,
+    "letterSpacing": 0.0,
+    "lineSpacing": 0.0,
+    "horizontalAlignment": "center",
+    "verticalAlignment": "center"
+  },
+  {
+    "miniatureText": "Ii",
+    "name": "Space Mono",
+    "font": "SpaceMono-Regular.ttf",
+    "fontColorHex": "#000000",
+    "backgroundColorHex": "#F7D9DE",
+    "fontSize": 10,
+    "letterSpacing": 0.0,
+    "lineSpacing": 0.0,
+    "horizontalAlignment": "center",
+    "verticalAlignment": "center"
+  },
+  {
+    "miniatureText": "Jj",
+    "name": "Space Mono",
+    "font": "PlayfairDisplay-Italic.ttf",
+    "fontColorHex": "#000000",
+    "backgroundColorHex": "#F7D9DE",
+    "fontSize": 10,
+    "letterSpacing": 0.0,
+    "lineSpacing": 0.0,
+    "horizontalAlignment": "center",
+    "verticalAlignment": "center"
+  },
+  {
+    "miniatureText": "Kk",
+    "name": "Star Green",
+    "font": "Roboto-Bold.ttf",
+    "fontColorHex": "#ebd8d1",
+    "backgroundColorHex": "#25565a",
+    "fontSize": 10,
+    "letterSpacing": 0.0,
+    "lineSpacing": 0.0,
+    "horizontalAlignment": "center",
+    "verticalAlignment": "center"
+  },
+  {
+    "miniatureText": "Ll",
+    "name": "Star Pink",
+    "font": "Roboto-Bold.ttf",
+    "fontColorHex": "#25565a",
+    "backgroundColorHex": "#ebd8d1",
+    "fontSize": 10,
+    "letterSpacing": 0.0,
+    "lineSpacing": 0.0,
+    "horizontalAlignment": "center",
+    "verticalAlignment": "center"
+  },
+  {
+    "miniatureText": "Mm",
     "name": "VCR",
     "font": "VCR_OSD_MONO.ttf",
     "fontColorHex": "#FFFFFF",
@@ -84,71 +156,11 @@
     "verticalAlignment": "center"
   },
   {
-    "miniatureText": "Pp",
+    "miniatureText": "Nn",
     "name": "Marker",
     "font": "PermanentMarker-Regular.ttf",
     "fontColorHex": "#FFFFFF",
     "backgroundColorHex": "#5F6B93",
-    "fontSize": 10,
-    "letterSpacing": 0.0,
-    "lineSpacing": 0.0,
-    "horizontalAlignment": "center",
-    "verticalAlignment": "center"
-  },
-  {
-    "miniatureText": "Ss",
-    "name": "Space Mono",
-    "font": "SpaceMono-Regular.ttf",
-    "fontColorHex": "#F5E6E7",
-    "backgroundColorHex": "#F04D4D",
-    "fontSize": 10,
-    "letterSpacing": 0.0,
-    "lineSpacing": 0.0,
-    "horizontalAlignment": "left",
-    "verticalAlignment": "top"
-  },
-  {
-    "miniatureText": "Ss",
-    "name": "Space Mono",
-    "font": "SpaceMono-Regular.ttf",
-    "fontColorHex": "#000000",
-    "backgroundColorHex": "#F7D9DE",
-    "fontSize": 10,
-    "letterSpacing": 0.0,
-    "lineSpacing": 0.0,
-    "horizontalAlignment": "left",
-    "verticalAlignment": "top"
-  },
-  {
-    "miniatureText": "Ss",
-    "name": "Space Mono",
-    "font": "PlayfairDisplay-Italic.ttf",
-    "fontColorHex": "#000000",
-    "backgroundColorHex": "#F7D9DE",
-    "fontSize": 10,
-    "letterSpacing": 0.0,
-    "lineSpacing": 0.0,
-    "horizontalAlignment": "left",
-    "verticalAlignment": "top"
-  },
-  {
-    "miniatureText": "Gg",
-    "name": "Star Green",
-    "font": "Roboto-Bold.ttf",
-    "fontColorHex": "#ebd8d1",
-    "backgroundColorHex": "#25565a",
-    "fontSize": 10,
-    "letterSpacing": 0.0,
-    "lineSpacing": 0.0,
-    "horizontalAlignment": "left",
-    "verticalAlignment": "bottom"
-  },
-  {
-    "miniatureText": "Rr",
-    "name": "Star Pink",
-    "font": "Roboto-Bold.ttf",
-    "fontColorHex": "#25565a",
-    "backgroundColorHex": "#ebd8d1",
     "fontSize": 10,
     "letterSpacing": 0.0,
     "lineSpacing": 0.0,

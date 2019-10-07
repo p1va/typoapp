@@ -14,6 +14,9 @@ import com.github.p1va.typoapp.R;
 
 import timber.log.Timber;
 
+/**
+ * The Text Settings fragment
+ */
 public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarChangeListener {
 
     /**
@@ -21,20 +24,55 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
      */
     private static final int SEEK_BAR_PROGRESS_STEP = 1;
 
+    /**
+     * The seek bar for text size minimum progress
+     */
     private static final int SEEK_BAR_TEXT_SIZE_MIN_PROGRESS = 3;
+
+    /**
+     * The seek bar for text size maximum progress
+     */
     private static final int SEEK_BAR_TEXT_SIZE_MAX_PROGRESS = 20;
+
+    /**
+     * The seek bar for text size maximum allowed progress
+     */
     private static final int SEEK_BAR_TEXT_SIZE_MAX_ALLOWED_PROGRESS = (SEEK_BAR_TEXT_SIZE_MAX_PROGRESS - SEEK_BAR_TEXT_SIZE_MIN_PROGRESS) / SEEK_BAR_PROGRESS_STEP;
 
+    /**
+     * The seek bar for letter spacing progress multiplier
+     */
+    private static final float SEEK_BAR_LETTER_SPACING_PROGRESS_MULTIPLIER = 0.01f;
 
-    private static final int SEEK_BAR_LETTER_SPACING_MIN_PROGRESS = 0;
-    private static final int SEEK_BAR_LETTER_SPACING_MAX_PROGRESS = 1;
+    /**
+     * The seek bar for letter spacing minimum progress
+     */
+    private static final int SEEK_BAR_LETTER_SPACING_MIN_PROGRESS = -10;
+
+    /**
+     * The seek bar for letter spacing maximum progress
+     */
+    private static final int SEEK_BAR_LETTER_SPACING_MAX_PROGRESS = 10;
+
+    /**
+     * The seek bar for letter spacing maximum allowed progress
+     */
     private static final int SEEK_BAR_LETTER_SPACING_MAX_ALLOWED_PROGRESS = (SEEK_BAR_LETTER_SPACING_MAX_PROGRESS - SEEK_BAR_LETTER_SPACING_MIN_PROGRESS) / SEEK_BAR_PROGRESS_STEP;
 
+    /**
+     * The seek bar for line spacing minimum progress
+     */
+    private static final int SEEK_BAR_LINE_SPACING_MIN_PROGRESS = -20;
 
-    private static final int SEEK_BAR_LINE_SPACING_MIN_PROGRESS = -10;
-    private static final int SEEK_BAR_LINE_SPACING_MAX_PROGRESS = 10;
+    /**
+     * The seek bar for line spacing maximum progress
+     */
+    private static final int SEEK_BAR_LINE_SPACING_MAX_PROGRESS = 40;
+
+    /**
+     * The seek bar for line spacing maximum allowed progress
+     */
     private static final int SEEK_BAR_LINE_SPACING_MAX_ALLOWED_PROGRESS = (SEEK_BAR_LINE_SPACING_MAX_PROGRESS - SEEK_BAR_LINE_SPACING_MIN_PROGRESS) / SEEK_BAR_PROGRESS_STEP;
-
 
     /**
      * The interaction listener
@@ -100,6 +138,7 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
 
     /**
      * Called on fragment creation
+     *
      * @param savedInstanceState
      */
     @Override
@@ -109,8 +148,9 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
 
     /**
      * Called on view creation
-     * @param inflater The inflater
-     * @param container The container
+     *
+     * @param inflater           The inflater
+     * @param container          The container
      * @param savedInstanceState The saved instance state
      * @return The view
      */
@@ -127,15 +167,12 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
 
         // Initialize letter spacing seek bar
         mSeekBarLetterSpacing.setMax(SEEK_BAR_LETTER_SPACING_MAX_ALLOWED_PROGRESS);
-        //mSeekBarLetterSpacing.setProgress(1);
 
         // Initialize text size seek bar
         mSeekBarTextSize.setMax(SEEK_BAR_TEXT_SIZE_MAX_ALLOWED_PROGRESS);
-        //mSeekBarTextSize.setProgress(1);
 
         // Initialize line spacing size seek bar
         mSeekBarLineSpacing.setMax(SEEK_BAR_LINE_SPACING_MAX_ALLOWED_PROGRESS);
-        //mSeekBarLineSpacing.setProgress(1);
 
         // Set listeners
         mSeekBarLetterSpacing.setOnSeekBarChangeListener(this);
@@ -147,23 +184,21 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
 
     /**
      * Called when seek bars progress changes
-     * @param seekBar The seek bar
+     *
+     * @param seekBar  The seek bar
      * @param progress The progress
      * @param fromUser The from user flag
      */
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-        //if(!fromUser){
-        //    Timber.d("Ignoring this progress change to " + progress + " since it was not from a user");
-        //    return;
-        //}
-
         switch (seekBar.getId()) {
 
             case R.id.seekbar_letter_spacing:
 
                 float letterSpacingValue = SEEK_BAR_LETTER_SPACING_MIN_PROGRESS + (progress * SEEK_BAR_PROGRESS_STEP);
+
+                letterSpacingValue = letterSpacingValue * SEEK_BAR_LETTER_SPACING_PROGRESS_MULTIPLIER;
 
                 if(mListener != null) {
                     mListener.onLetterSpacingChanged(letterSpacingValue);
@@ -176,7 +211,7 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
                 float textSizeValue = SEEK_BAR_TEXT_SIZE_MIN_PROGRESS + (progress * SEEK_BAR_PROGRESS_STEP);
 
                 if(mListener != null) {
-                    mListener.onTextSizeChanged((int)textSizeValue);
+                    mListener.onTextSizeChanged((int) textSizeValue);
                 }
 
                 break;
@@ -195,6 +230,7 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
 
     /**
      * Called on start tracking touch
+     *
      * @param seekBar The seek bar
      */
     @Override
@@ -205,6 +241,7 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
 
     /**
      * Called on stop tracking touch
+     *
      * @param seekBar The seek bar
      */
     @Override
@@ -281,7 +318,7 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
         if(mSeekBarLetterSpacing != null) {
 
             // Cast progress to int
-            int progress = (int) letterSpacing;
+            int progress = (int) (letterSpacing / SEEK_BAR_LETTER_SPACING_PROGRESS_MULTIPLIER);
 
             if(progress < SEEK_BAR_LETTER_SPACING_MIN_PROGRESS || progress > SEEK_BAR_LETTER_SPACING_MAX_PROGRESS) {
 
@@ -305,18 +342,21 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
 
         /**
          * Called on text size changes
+         *
          * @param size The size
          */
         void onTextSizeChanged(int size);
 
         /**
          * Called on letter spacing changes
+         *
          * @param spacing The letter spacing
          */
         void onLetterSpacingChanged(float spacing);
 
         /**
          * Called on line spacing changes
+         *
          * @param spacing The line spacing
          */
         void onLineSpacingChanged(float spacing);

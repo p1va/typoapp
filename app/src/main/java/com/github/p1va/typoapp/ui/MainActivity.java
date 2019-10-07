@@ -20,7 +20,6 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.github.p1va.typoapp.Constants;
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements
     /**
      * The share button
      */
-    private Button mButtonShare;
+    //private Button mButtonShare;
 
     /**
      * The themes fragment
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements
         });
 
         // Get the viewpager
-        NonSwipeableViewPager viewPager = findViewById(R.id.viewpager);
+        final NonSwipeableViewPager viewPager = findViewById(R.id.viewpager);
         TabLayout tabLayout = findViewById(R.id.tabs);
 
         // Declare adapter
@@ -194,34 +193,36 @@ public class MainActivity extends AppCompatActivity implements
         tabLayout.getTabAt(0).setIcon(R.drawable.baseline_format_paint_white_36dp);
         tabLayout.getTabAt(1).setIcon(R.mipmap.baseline_format_size_white_36dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.baseline_format_align_center_white_36dp);
-
-        // Initialize the share button
-        mButtonShare = findViewById(R.id.share_button);
-        mButtonShare.setOnClickListener(new View.OnClickListener() {
-
-            /**
-             * Handles the on click event on the share button
-             * @param v The button view
-             */
+        tabLayout.addTab(tabLayout.newTab().setIcon(android.R.drawable.ic_menu_share));
+        tabLayout.clearOnTabSelectedListeners();
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
             @Override
-            public void onClick(View v) {
+            public void onTabSelected(TabLayout.Tab tab) {
 
-                // Remove focus
-                mEditText.setCursorVisible(false);
-                mEditText.clearFocus();
-                mEditText.clearComposingText();
+                // Check if it is the last tab that works as share button
+                if(tab.getPosition() == viewPager.getAdapter().getCount()) {
 
-                // Capture edit text to bitmap
-                mBitmap = BitmapUtils.captureViewToBitmap(mEditText);
+                    // Remove focus
+                    mEditText.setCursorVisible(false);
+                    mEditText.clearFocus();
+                    mEditText.clearComposingText();
 
-                // Ensure permissions are granted and share
-                ensurePermissionAndShareImage();
+                    // Capture edit text to bitmap
+                    mBitmap = BitmapUtils.captureViewToBitmap(mEditText);
 
-                // Re enable cursor
-                mEditText.setCursorVisible(true);
+                    // Ensure permissions are granted and share
+                    ensurePermissionAndShareImage();
 
-                // Save the text value in the preferences
-                SharedPreferencesUtils.set(getApplicationContext(), Constants.KEY_PREVIOUS_TEXT_VALUE, mEditText.getText().toString());
+                    // Re enable cursor
+                    mEditText.setCursorVisible(true);
+
+                    // Save the text value in the preferences
+                    SharedPreferencesUtils.set(getApplicationContext(), Constants.KEY_PREVIOUS_TEXT_VALUE, mEditText.getText().toString());
+                } else {
+
+                    // Handle as normal
+                    super.onTabSelected(tab);
+                }
             }
         });
 
