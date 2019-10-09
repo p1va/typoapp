@@ -125,9 +125,12 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
      * Gets a new instance of the TextSettingsFragment
      * @return
      */
-    public static TextSettingsFragment newInstance() {
+    public static TextSettingsFragment newInstance(int textSize, float lineSpacing, float letterSpacing) {
 
         Bundle args = new Bundle();
+        args.putSerializable("text_size", textSize);
+        args.putSerializable("line_spacing", lineSpacing);
+        args.putSerializable("letter_spacing", letterSpacing);
 
         TextSettingsFragment fragment = new TextSettingsFragment();
 
@@ -158,6 +161,11 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        // Retrieve initial values from args
+        int textSize = (int) getArguments().getSerializable("text_size");
+        float lineSpacing = (float) getArguments().getSerializable("line_spacing");
+        float letterSpacing = (float) getArguments().getSerializable("letter_spacing");
+
         View view = inflater.inflate(R.layout.fragment_text_settings, container, false);
 
         // Find views
@@ -165,14 +173,14 @@ public class TextSettingsFragment extends Fragment implements SeekBar.OnSeekBarC
         mSeekBarTextSize = view.findViewById(R.id.seekbar_text_size);
         mSeekBarLineSpacing = view.findViewById(R.id.seekbar_line_spacing);
 
-        // Initialize letter spacing seek bar
+        // Set seek bar max
         mSeekBarLetterSpacing.setMax(SEEK_BAR_LETTER_SPACING_MAX_ALLOWED_PROGRESS);
-
-        // Initialize text size seek bar
         mSeekBarTextSize.setMax(SEEK_BAR_TEXT_SIZE_MAX_ALLOWED_PROGRESS);
-
-        // Initialize line spacing size seek bar
         mSeekBarLineSpacing.setMax(SEEK_BAR_LINE_SPACING_MAX_ALLOWED_PROGRESS);
+
+        setTextSize(textSize);
+        setLetterSpacing(letterSpacing);
+        setLineSpacing(lineSpacing);
 
         // Set listeners
         mSeekBarLetterSpacing.setOnSeekBarChangeListener(this);

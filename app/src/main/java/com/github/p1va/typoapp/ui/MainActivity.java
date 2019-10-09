@@ -175,9 +175,12 @@ public class MainActivity extends AppCompatActivity implements
 
         Timber.d("Themes from json: " + mThemes.size());
 
+        // Pick random one
+        mTheme = ListsUtils.pickRandomItem(mThemes);
+
         // Declare the fragments
         mThemesFragment = ThemesFragment.newInstance(mThemes);
-        mTextSettingsFragment = TextSettingsFragment.newInstance();
+        mTextSettingsFragment = TextSettingsFragment.newInstance(mTheme.fontSize, mTheme.lineSpacing, mTheme.letterSpacing);
         mTextAlignmentFragment = TextAlignmentFragment.newInstance();
 
         // Add fragments
@@ -190,10 +193,10 @@ public class MainActivity extends AppCompatActivity implements
 
         // Set the tab layout
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.baseline_format_paint_white_36dp);
+        tabLayout.getTabAt(0).setIcon(R.drawable.outline_format_paint_white_36dp);
         tabLayout.getTabAt(1).setIcon(R.mipmap.baseline_format_size_white_36dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.baseline_format_align_center_white_36dp);
-        tabLayout.addTab(tabLayout.newTab().setIcon(android.R.drawable.ic_menu_share));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.outline_share_white_36dp));
         tabLayout.clearOnTabSelectedListeners();
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
             @Override
@@ -225,9 +228,6 @@ public class MainActivity extends AppCompatActivity implements
                 }
             }
         });
-
-        // Pick random one
-        mTheme = ListsUtils.pickRandomItem(mThemes);
 
         // Apply random one
         applySelectedTheme();
