@@ -7,6 +7,10 @@ This is the repository containing the source code for the Typo Android app that 
 
 Find the themes.json file in the assets folder.
 
+Then add an item to the list which describes a new theme.
+
+The following structure needs to be used:
+
 ```json
 {
     "miniatureText": "Aa",
